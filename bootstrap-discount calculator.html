@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title >Discount Calculator</title>
+    <style>
+        .container {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Discount Calculator</h2>
+
+    <form>
+        <label for="billAmount">Bill Amount:</label>
+        <input type="number" id="billAmount" name="billAmount" value="100">
+
+        <label for="discountPercentage">Discount Percentage:</label>
+        <input type="number" id="discountPercentage" name="discountPercentage" value="10">
+
+        <input type="button" value="Calculate" onclick="calculateDiscount()">
+
+        <label for="totalDiscount">Total Discount Amount:</label>
+        <span id="totalDiscount"></span>
+    </form>
+</div>
+
+<script>
+    function calculateDiscount() {
+        var billAmount = parseFloat(document.getElementById('billAmount').value);
+        var discountPercentage = parseFloat(document.getElementById('discountPercentage').value);
+
+        var discountAmount = billAmount * (discountPercentage / 100);
+
+        document.getElementById('totalDiscount').textContent = discountAmount.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
